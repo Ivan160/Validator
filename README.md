@@ -2,7 +2,7 @@
 The Validation JavaScript Plugin provides drop-in validation for your forms
 
 ### Validator-install
-#### folder Install
+**folder install**
 ```js
 import validator from './modules/validator';
 
@@ -11,7 +11,8 @@ addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-## Getting Started
+### Validator-install
+**folder Install**
 ```js
 <script src="./validator.js"></script>
 <script>
@@ -21,7 +22,8 @@ addEventListener('DOMContentLoaded', function() {
 </script>
 ```
 
-## Getting Started
+### Validator-independent
+**folder independent**
 ```js
 <script src="./validator.js"></script>
 ```
