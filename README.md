@@ -43,7 +43,7 @@ First, include the validator.js.
 <script src="./validator.js"></script>
 ```
 
-##Setting 
+## Setting 
 Set the name attribute for the items you wish to have validation.
 ```html
       <input type="text" name="name">
