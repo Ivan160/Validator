@@ -11,8 +11,8 @@ addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-### Validator-install
-**folder Install**
+### Validator-connections
+**folder connections**
 ```js
 <script src="./validator.js"></script>
 <script>
