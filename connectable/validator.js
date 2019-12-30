@@ -3,32 +3,42 @@ var validator = function (form) {
 
 	var elements = form.elements;
 	var btn = form.querySelector('[type="submit"]');
-	var name = /^([а-яё]+|[a-z]+)$/i,
-		phone = /^([+]?[0-9\s-\(\)]{7,25})*$/,
-		emailOne = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)/,
-		emailTwo = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@$/,
-		emailThree = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)$/,
-		emailFour = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/,
+	var name = /^([а-яё]+|[a-z]+)$/i;
+	var phone = /^([+]?[0-9\s-\(\)]{7,25})*$/;
+	var emailOne = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)/;
+	var emailTwo = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@$/;
+	var emailThree = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)$/;
+	var emailFour = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+	var errorMess = [
+		'Незаполненное поле ввода',
+		'Введите Ваше реальное имя',
+		'Неверный формат номера телефона',
+	];
+	var errorEmail = [
+		'Незаполненное поле ввода',
+		'Некорректный адрес электронной почты',
+		'Адрес электронной почты должен содержать символ "@"',
+		'Введите часть адреса после символа "@"',
+		'Введите расширение адреса. Например: .com или .ru'
+	];
+	var iserror = false;
 
-		errorMess = [
-			'Незаполненное поле ввода',
-			'Введите Ваше реальное имя',
-			'Неверный формат номера телефона',
-		],
-		errorEmail = [
-			'Незаполненное поле ввода',
-			'Некорректный адрес электронной почты',
-			'Адрес электронной почты должен содержать символ "@"',
-			'Введите часть адреса после символа "@"',
-			'Введите расширение адреса. Например: .com или .ru'
-		],
-		iserror = false;
+	(function init() {
+		var style = document.createElement('style');
+		style.textContent = `
+			.error {max-width: 260px; width: max-content; display: block; font-size: 13px; line-height: 15px; color: #fff; position: absolute; left: 0; top: calc(100% + 8px); z-index: 100; padding: 6px 10px 7px; -webkit-border-radius: 1px; border-radius: 6px; background: #d99;}
+			.error:before {width: 0; height: 0; content: ''; position: absolute; left: 15px; top: -7px; border-right: 8px solid transparent; border-left: 8px solid transparent; border-bottom: 8px solid #d99;}
+			.form-control_error {border-color: #d99;}
+			.box-error {position: relative; display: inline-block;}
+		`;
+		document.head.appendChild(style);
 
-	btn.addEventListener('click', validForm);
-	form.addEventListener('focus', function () {
-		var el = document.activeElement;
-		if (el !== btn) cleanError(el);
-	}, true);
+		btn.addEventListener('click', validForm);
+		form.addEventListener('focus', function () {
+			var el = document.activeElement;
+			if (el !== btn) cleanError(el);
+		}, true);
+	}());
 
 	function validForm(e) {
 		e.preventDefault();
@@ -131,20 +141,3 @@ var validator = function (form) {
 		return controls;
 	}
 };
-
-function start() {
-	var style = document.createElement('style');
-	style.textContent = `
-		.error {max-width: 260px; width: max-content; display: block; font-size: 13px; line-height: 15px; color: #fff; position: absolute; left: 0; top: calc(100% + 8px); z-index: 100; padding: 6px 10px 7px; -webkit-border-radius: 1px; border-radius: 6px; background: #d99;}
-		.error:before {width: 0; height: 0; content: ''; position: absolute; left: 15px; top: -7px; border-right: 8px solid transparent; border-left: 8px solid transparent; border-bottom: 8px solid #d99;}
-		.form-control_error {border-color: #d99;}
-		.box-error {position: relative; display: inline-block;}
-	`;
-	document.head.appendChild(style);
-
-	var forms = document.querySelectorAll('form');
-	for (var i = 0; i < forms.length; i++) {
-		validator(forms[i]);
-	}
-}
-start();

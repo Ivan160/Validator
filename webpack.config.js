@@ -2,7 +2,7 @@
 
 module.exports = {
    entry: {                                                                  
-      main: './src/validator.js'
+      main: './install/index.js'
    },
    output: {                                                                
       path: path.resolve(__dirname, './dist'),

@@ -5,10 +5,17 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Document</title>
+   <title>Validator-independent</title>
 </head>
 
 <body>
+   <form id="form">
+      <input type="text" name="name">
+      <input type="text" name="phone">
+      <input type="email" name="email">
+      <input type="submit">
+   </form>
+
    <form>
       <input type="text" name="name">
       <input type="text" name="phone">
@@ -16,7 +23,7 @@
       <input type="submit">
    </form>
 
-   <script src="./src/validator.js"></script>
+   <script src="./validator.js"></script>
 </body>
 
 </html>
