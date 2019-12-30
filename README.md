@@ -38,6 +38,7 @@ Next, call the validator function for those forms you wish to have validation.
 
 First, download the file validator.js from the "independent" folder. 
 Include the validator.js to your project.
+Validator-independent will validation all forms in your project
 
 ```js
 <script src="./validator.js"></script>
