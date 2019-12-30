@@ -1,7 +1,7 @@
 # Validator JavaScript Plugin
 The Validation JavaScript Plugin provides drop-in validation for your forms
 
-## Validator-install
+### Validator-install
 #### folder Install
 ```js
 import validator from './modules/validator';
