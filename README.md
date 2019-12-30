@@ -1,6 +1,7 @@
 # Validator JavaScript Plugin
 The Validation JavaScript Plugin provides drop-in validation for your forms
 
+##Usage
 ### Validator-install
 **Folder install**
 
@@ -40,4 +41,12 @@ First, include the validator.js.
 
 ```js
 <script src="./validator.js"></script>
+```
+
+##Setting 
+Set the name attribute for the items you wish to have validation.
+```html
+      <input type="text" name="name">
+      <input type="text" name="phone">
+      <input type="text" name="email">
 ```
