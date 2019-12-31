@@ -17,6 +17,7 @@ addEventListener('DOMContentLoaded', function() {
 });
 ```
 
+
 ### Validator-connections
 **Folder connections**
 
@@ -33,6 +34,7 @@ Next, call the validator function for those forms you wish to have validation.
 </script>
 ```
 
+
 ### Validator-independent
 **Folder independent**
 
@@ -43,6 +45,7 @@ Validator-independent will validation all forms in your project
 ```js
 <script src="./validator.js"></script>
 ```
+
 
 ## Usage
 Set the name attribute for the items you wish to have validation.
