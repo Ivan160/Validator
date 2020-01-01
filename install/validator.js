@@ -5,10 +5,11 @@ var validator = function (form) {
 	var btn = form.querySelector('[type="submit"]');
 	var name = /^([а-яё]+|[a-z]+)$/i;
 	var phone = /^([+]?[0-9\s-\(\)]{7,25})*$/;
-	var emailOne = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)/;
+	var emailOne = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)$/;
 	var emailTwo = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@$/;
 	var emailThree = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)$/;
-	var emailFour = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+	var emailFour = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.$/;
+	var emailSix = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
 	var errorMess = [
 		'Незаполненное поле ввода',
 		'Введите Ваше реальное имя',
@@ -64,15 +65,17 @@ var validator = function (form) {
 				else if (name.test(formVal.name) == false) error = errorMess[1];
 			},
 			'email': function () {
-				if (formVal.email.length == 0) {
+				if (formVal.email.length === 0) {
 					error = errorMess[0];
-				} else if (emailFour.test(formVal.email) == false) {
-					if (emailThree.test(formVal.email) == false) {
-						if (emailTwo.test(formVal.email) == false) {
-							if (emailOne.test(formVal.email) == false) {
-								error = errorEmail[1];
-							} else error = errorEmail[2];
-						} else error = errorEmail[3];
+				} else if (emailSix.test(formVal.email) === false) {
+					if (emailFour.test(formVal.email) === false) {
+						if (emailThree.test(formVal.email) === false) {
+							if (emailTwo.test(formVal.email) === false) {
+								if (emailOne.test(formVal.email) === false) {
+									error = errorEmail[1];
+								} else error = errorEmail[2];
+							} else error = errorEmail[3];
+						} else error = errorEmail[4];
 					} else error = errorEmail[4];
 				}
 			},
@@ -81,7 +84,7 @@ var validator = function (form) {
 				else if (phone.test(formVal.phone) == false) error = errorMess[2];
 			},
 			'text': function () {
-				if (formVal.textmess.length == 0) error = errorMess[0];
+				if (formVal.text.length == 0) error = errorMess[0];
 			}
 		};
 
