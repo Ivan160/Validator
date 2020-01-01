@@ -16,9 +16,9 @@ addEventListener('DOMContentLoaded', function() {
    validator(document.querySelector('#form'));
    //or
    var forms = document.querySelectorAll('form');
-	for (var i = 0; i < forms.length; i++) {
-		validator(forms[i]);
-	}
+   for (var i = 0; i < forms.length; i++) {
+      validator(forms[i]);
+   }
 });
 ```
 
