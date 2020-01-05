@@ -40,18 +40,6 @@ Next, call the validator function for those forms you wish to have validation.
 ```
 
 
-### Validator-independent
-**Folder independent**
-
-First, download the file validator.js from the "independent" folder. 
-Include the validator.js to your project.
-Validator-independent will validation all forms in your project
-
-```js
-<script src="./validator.js"></script>
-```
-
-
 ## Usage
 Set the name attribute for the items you wish to have validation.
 ```html
